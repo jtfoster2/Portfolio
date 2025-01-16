@@ -1,7 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <title>Homepage</title>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<h1>Profile</h1>
+<div>
+    <p>I'm hosted with GitHub Pages.</p>
+</div>
+
+<p>Click <a th:href="@{/about}">here</a> to learn more about me.</p>
+<p>Click <a th:href="@{/projects}">here</a> to see some of my projects.</p>
+<p>Click <a th:href="@{/resume}">here</a> to see my resume at large.</p>
+<p>Click <a th:href="@{/contact}">here</a> to see my contact info.</p>
 </body>
 </html>
