@@ -1,21 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Homepage</title>
+	<title>Homepage</title>
+	<link rel="stylesheet" type="text/css" href="styles/cardStyling.css">
+	<!-- Bootstrap CSS Import -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<h1>Homepage</h1>
-<p>Hi, welcome to my new Portfolio page created for my Web Service Engineering class!</p>
-<p>This is currently hosted with GitHub Pages, and is using some basic HTML/CSS currently</p>
-<p>I read about <a href="https://jekyllrb.com/">Jekyll</a> and its <a href="">Github Pages</a> integration, so I may use that in the future for this</p>
-<div>
-<ol>
-	<li><p>Click <a href="index.html">here</a> to return to the homepage.</p></li>
-	<li><p>Click <a href="about.html">here</a> to learn more about me.</p></li>
-	<li><p>Click <a href="projects.html">here</a> to see some of my bigger projects.</p></li>
-	<li><p>Click <a href="resume.html">here</a> to see my resume at large.</p></li>
-	<li><p>Click <a href="contact.html">here</a> to see my contact info.</p></li>
-</ol>
-</div>
+	<div id="header"></div> <!-- Header.html will be inserted here -->
+
+	<p>Hi, welcome to my new Portfolio page created for my Web Service Engineering class!</p>
+	<p>This is currently hosted with GitHub Pages (hopefully you could tell by the link), and is shamelessly put together with copious amounts of help from the <a href="https://getbootstrap.com/">Bootstrap Framework</a></p>
+	<p>I'll be working on improving this webpage as the class goes on, and hopefully have some cooler stuff in here. If you think this webpage is decent enough to want to copy, you can view the source code here on <a href="https://github.com/jtfoster2/Portfolio">GitHub</a></p>
+	<p>Feel free to navigate around using either the Header above or Footer below to learn a little more about me!</p>
+
+	<div id="footer"></div>  <!-- Footer.html will be inserted here -->
+	<!-- Bootstrap JS Import -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<!-- Use JS to get Header and Footer from server -->
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			fetch('templates/header.shtml')
+					.then(response => response.text())
+					.then(data => {
+						document.getElementById('header').innerHTML = data;
+						document.getElementById('header-title').textContent = "Homepage"; // Set the actual page header name here
+					});
+
+			fetch('templates/footer.shtml')
+					.then(response => response.text())
+					.then(data => {
+						document.getElementById('footer').innerHTML = data;
+					});
+		});
+	</script>
 </body>
 </html>
